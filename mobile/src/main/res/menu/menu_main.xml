@@ -1,7 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.isuru.isumalab.MainActivity">
+    tools:context="com.isuru.isumalab.MainActivity"
+    app:theme="@style/ToolBarStyle"
+    >
+
     <item
         android:id="@+id/action_search"
         android:orderInCategory="3"
