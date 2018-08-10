@@ -1,6 +1,7 @@
 package com.isuru.isumalab;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -20,6 +21,7 @@ public class YoutubeCourse extends YouTubeBaseActivity implements YouTubePlayer.
 
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player);
         youTubePlayerView.initialize(API_KEY,this);
+
     }
 
     @Override

@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".EditUser">
 
+    <android.support.v7.widget.Toolbar
+    android:id="@+id/my_back_toolbar"
+    style="@style/HeaderBar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:elevation="4dp" />
+
+
+
     <Button
         android:id="@+id/button2"
         android:layout_width="100dp"

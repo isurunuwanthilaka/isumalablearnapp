@@ -26,11 +26,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".YoutubeCourse" />
-        <activity android:name=".EditUser" />
-        <activity android:name=".EditCourse" />
-        <activity android:name=".Leaderboard" />
-        <activity android:name=".SearchCourse" />
+        <activity
+            android:name=".YoutubeCourse"
+            android:label="Class Room"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".EditUser"
+            android:label="User Profile"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".EditCourse"
+            android:label="Course Details"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".Leaderboard"
+            android:label="Leaderboard"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".SearchCourse"
+            android:label="Course Catalog"
+            android:theme="@style/AppTheme.NoActionBar"
+        />
 
     </application>
 

@@ -17,13 +17,13 @@
         android:orderInCategory="2"
         android:title="User"
         android:icon="@drawable/action_user"
-        app:showAsAction="ifRoom"></item>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_leaderboard"
         android:orderInCategory="1"
         android:title="Learderboard"
-        android:icon="@drawable/action_leaderboard"
-        app:showAsAction="ifRoom"></item>
+        android:icon="@drawable/leaderboard"
+        app:showAsAction="ifRoom" />
 
 </menu>
