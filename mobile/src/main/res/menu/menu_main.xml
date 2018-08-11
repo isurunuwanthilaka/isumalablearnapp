@@ -4,7 +4,6 @@
     tools:context="com.isuru.isumalab.MainActivity"
     app:theme="@style/ToolBarStyle"
     >
-
     <item
         android:id="@+id/action_search"
         android:orderInCategory="3"
