@@ -41,11 +41,18 @@
             android:label="Course Details"
             android:theme="@style/AppTheme.NoActionBar"
             />
+
         <activity
             android:name=".Leaderboard"
             android:label="Leaderboard"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".Feed"
+            android:label="Feed"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
         <activity
             android:name=".SearchCourse"
             android:label="Course Catalog"

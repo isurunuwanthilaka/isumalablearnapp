@@ -72,12 +72,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+
         if (id == R.id.action_leaderboard) {
 //            Toast.makeText(MainActivity.this, "Action : Leaderboard clicked", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, Leaderboard.class);
             this.startActivity(i);
             return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
