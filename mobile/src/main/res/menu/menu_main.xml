@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.isuru.learn.MainActivity"
+    app:theme="@style/ToolBarStyle"
+    >
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="3"
+        android:title="Search"
+        android:icon="@drawable/action_search"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_user"
+        android:orderInCategory="2"
+        android:title="User"
+        android:icon="@drawable/action_user"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_leaderboard"
+        android:orderInCategory="1"
+        android:title="Learderboard"
+        android:icon="@drawable/leaderboard"
+        app:showAsAction="ifRoom" />
+
+</menu>

@@ -1,0 +1,22 @@
+{
+  "users": {
+    "1":{
+      "name":"isuru",
+      "age":"23"
+    },
+    "2":{
+      "name":"thrindu",
+      "age":"24"
+    }
+  },
+  "courses":{
+    "python":{
+      "1":{
+        "video_ID":"b3xhZ-pnH0s"
+      }
+    }
+  },
+  "news":{
+    "1":"hello world!"
+  }
+}
