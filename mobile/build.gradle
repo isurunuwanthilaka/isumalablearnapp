@@ -29,4 +29,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-wearable:+'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation 'com.android.support:appcompat-v7:28.0.0-beta01'
+    implementation 'com.google.firebase:firebase-auth:16.0.4'
 }
