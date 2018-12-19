@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/holo_green_light"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,21 +19,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/isumalab" />
+
         <EditText
             android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="175dp" />
 
@@ -40,8 +61,21 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@android:color/holo_green_dark"
             android:text="login"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
             android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/linksignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:inputType="textPersonName"
+            android:text="Signup?"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
