@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_green_light"
+        android:background="@color/design_default_color_primary"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,14 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/loginimage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/isumalab" />
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/isumaschool" />
 
         <EditText
             android:id="@+id/login_email"
@@ -62,20 +62,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@android:color/holo_green_dark"
+            android:background="@color/design_default_color_primary_dark"
             android:text="login"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:visibility="visible" />
 
-        <EditText
-            android:id="@+id/linksignup"
+        <TextView
+            android:id="@+id/signuplink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:inputType="textPersonName"
-            android:text="Signup?"
-            android:textColor="@android:color/black" />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Signup?" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
