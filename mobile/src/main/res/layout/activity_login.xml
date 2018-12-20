@@ -22,11 +22,9 @@
         <ImageView
             android:id="@+id/loginimage"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="2dp"
+            android:adjustViewBounds="true"
             app:srcCompat="@drawable/isumaschool" />
 
         <EditText
@@ -63,19 +61,24 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@color/design_default_color_primary_dark"
-            android:text="login"
-            android:textColor="@android:color/black"
+            android:text="Login"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:textAllCaps="false" />
 
         <TextView
             android:id="@+id/signuplink"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Signup?" />
+            android:text="Don't have account? Sign Up"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
