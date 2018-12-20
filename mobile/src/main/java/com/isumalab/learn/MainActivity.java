@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mTopToolbar;
@@ -20,27 +23,34 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem mSearch;
     private MenuItem mUser;
     private MenuItem mLearderboard;
+    private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser == null) {
+            Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(myIntent);
+        } else {
+            setContentView(R.layout.activity_main);
 
-        //adding toolbar
-        mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(mTopToolbar);
+            //adding toolbar
+            mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+            setSupportActionBar(mTopToolbar);
 
-        //adding button for testing
-        mButton = (Button) findViewById(R.id.button);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), YoutubeCourse.class);
-                startActivity(myIntent);
-            }
-        });
-
+            //adding button for testing
+            mButton = (Button) findViewById(R.id.button);
+            mButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(view.getContext(), YoutubeCourse.class);
+                    startActivity(myIntent);
+                }
+            });
+        }
     }
 
     @Override
@@ -79,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
             this.startActivity(i);
             return true;
         }
-
 
 
         return super.onOptionsItemSelected(item);
