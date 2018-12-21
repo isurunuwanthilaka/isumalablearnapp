@@ -14,24 +14,24 @@
     android:layout_height="45dp"
     android:elevation="4dp" />
 
-
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="264dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="16dp"
-        android:text="EDIT"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/sign_out"
+        android:layout_width="332dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/darker_gray"
+        android:paddingLeft="10dp"
+        android:text="Signout"
+        android:textSize="18sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
