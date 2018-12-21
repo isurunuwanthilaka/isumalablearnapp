@@ -1,22 +1,28 @@
 {
-  "users": {
-    "1":{
-      "name":"isuru",
-      "age":"23"
-    },
-    "2":{
-      "name":"thrindu",
-      "age":"24"
-    }
-  },
-  "courses":{
-    "python":{
-      "1":{
-        "video_ID":"b3xhZ-pnH0s"
+  "User": {
+    "aaswwsdednjnfe": {
+      "FirstName": "isuru",
+      "LastName":"nuwanthilaka",
+      "Age": "23",
+      "Enrolled": {
+        "PYPL":{}
       }
     }
   },
-  "news":{
-    "1":"hello world!"
+  "Course": {
+    "PL": {
+      "PLPY": {
+        "PlayListName": "Python Basics In Sinhala",
+        "Video": {
+          "1": {
+            "VideoID": "b3xhZ-pnH0s",
+            "VideoName": "Lesson 1"
+          }
+        }
+      }
+    }
+  },
+  "News": {
+    "1": "hello world!"
   }
 }

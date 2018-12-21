@@ -41,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
             mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
             setSupportActionBar(mTopToolbar);
 
-            //adding button for testing
-            mButton = (Button) findViewById(R.id.button);
-            mButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent myIntent = new Intent(view.getContext(), YoutubeCourse.class);
-                    startActivity(myIntent);
-                }
-            });
+//            //adding button for testing
+//            mButton = (Button) findViewById(R.id.button);
+//            mButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent myIntent = new Intent(view.getContext(), YoutubeCourse.class);
+//                    startActivity(myIntent);
+//                }
+//            });
         }
     }
 

@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -84,6 +86,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Sign Up successful.",
                                     Toast.LENGTH_SHORT).show();
+                            insertUser2Firebase();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             Toast.makeText(getApplicationContext(), "Sign Up failed.Retry.",
@@ -91,6 +94,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         }
                     }
                 });
+    }
+
+    public void insertUser2Firebase() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String Uid = currentUser.getUid();
+            User user = new User().create();
+            DatabaseReference ref;
+            ref = FirebaseDatabase.getInstance().getReference("User");
+            ref.child(Uid).setValue(user);
+        }
     }
 
     @Override
