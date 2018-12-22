@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -18,8 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
-    private EditText email;
-    private EditText password;
+    EditText email,password;
     ProgressBar progressBar;
 
     @Override
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_button:
-                userLogin(email.getText().toString(), password.getText().toString());
+                userLogin();
                 break;
             case R.id.signup_link:
                 startActivity(new Intent(this, SignUpActivity.class));
@@ -60,10 +60,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public void userLogin(String email, String password) {
+    public void userLogin() {
+
+        String emailText = email.getText().toString().trim();
+        String passwordText = password.getText().toString().trim();
+
+        if (emailText.isEmpty()) {
+            email.setError("Email is required");
+            email.requestFocus();
+            return;
+        }
+
+        if (passwordText.isEmpty()) {
+            password.setError("Password is required");
+            password.requestFocus();
+            return;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
+            email.setError("Valid email is required");
+            email.requestFocus();
+            return;
+        }
+        if (passwordText.length() < 6) {
+            password.setError("Minimum length of the password is 6 digits");
+            password.requestFocus();
+            return;
+        }
+
         progressBar.setVisibility(View.VISIBLE);
 
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(emailText, passwordText).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
