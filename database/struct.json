@@ -1,22 +1,40 @@
 {
   "User": {
-    "aaswwsdednjnfe": {
-      "FirstName": "isuru",
-      "LastName":"nuwanthilaka",
-      "Age": "23",
-      "Enrolled": {
-        "PYPL":{}
+    "bQAH1yiiFJV4Hx6zsd21Hx0frvW2": {
+      "firstName": "isuru",
+      "lastName": "nuwanthilaka",
+      "age": "23",
+      "enrolled": {
+        "PYPL": {
+          "enrolledDate": "2018-12-20",
+          "done": "1 2 3"
+        },
+        "MLBS": {
+          "enrolledDate": "2018-12-20",
+          "done": "1 2 3"
+        }
       }
     }
   },
   "Course": {
     "PL": {
       "PLPY": {
-        "PlayListName": "Python Basics In Sinhala",
-        "Video": {
+        "playListName": "Python Basics In Sinhala",
+        "video": {
           "1": {
-            "VideoID": "b3xhZ-pnH0s",
-            "VideoName": "Lesson 1"
+            "videoID": "b3xhZ-pnH0s",
+            "videoName": "Lesson 1"
+          }
+        }
+      }
+    },
+    "ML": {
+      "MLBS": {
+        "playListName": "Machine Learning Basics In Sinhala",
+        "video": {
+          "1": {
+            "videoID": "b3xhZ-pnH0s",
+            "videoName": "Lesson 1"
           }
         }
       }
