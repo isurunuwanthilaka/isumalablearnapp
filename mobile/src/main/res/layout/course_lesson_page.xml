@@ -2,46 +2,21 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_main"
+    android:id="@+id/layout_leaderboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarAlwaysDrawHorizontalTrack="false"
-    android:scrollbarAlwaysDrawVerticalTrack="false"
-    tools:context=".MainActivity">
+    android:visibility="visible"
+    tools:context=".CourseList">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/my_back_toolbar"
         style="@style/HeaderBar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:elevation="4dp"
-        tools:layout_editor_absoluteY="69dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textViewActiveCourse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/darker_gray"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="Enrolled Courses"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:fontFamily="sans-serif"
-        app:layout_constraintBottom_toTopOf="@+id/scrollview_feed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:elevation="4dp" />
 
     <ScrollView
-        android:id="@+id/scrollview_feed"
+        android:id="@+id/scrollview_lesson"
         android:layout_width="344dp"
         android:layout_height="465dp"
         android:layout_marginBottom="8dp"
@@ -55,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewActiveCourse">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle_view_course"
+            android:id="@+id/recycle_view_lesson"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"

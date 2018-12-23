@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setAdapter(mAdapter);
 
-            prepareMovieData();
+            prepareCourseData();
 
 //            //adding button for testing
 //            mButton = (Button) findViewById(R.id.button);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void prepareMovieData() {
+    private void prepareCourseData() {
 
 
         ref = FirebaseDatabase.getInstance().getReference("User/" + mAuth.getCurrentUser().getUid() + "/enrolled");
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     Course course = new Course();
                     String courseName = oneSnapShot.child("/playListName").getValue(String.class);
                     course.setCourseName(courseName);
+                    course.setCode(oneSnapShot.getKey().toString());
                     courseList.add(course);
                     mAdapter.notifyDataSetChanged();
                 }

@@ -10,53 +10,53 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyViewHolder> {
+public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.MyViewHolder> {
 
-    private List<Course> coursesList;
+    private List<Lesson> lessonsList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView playListName,persentage;
+        public TextView name, category;
 
         public MyViewHolder(View view) {
             super(view);
             view.setOnClickListener(this);
-            playListName = (TextView) view.findViewById(R.id.playListName);
-            persentage = (TextView) view.findViewById(R.id.percentage);
+            name = (TextView) view.findViewById(R.id.lesson_name);
+            category = (TextView) view.findViewById(R.id.lesson_category);
         }
 
         @Override
         public void onClick(View view) {
-            Course course = coursesList.get(getLayoutPosition());
+            Lesson lesson = lessonsList.get(getLayoutPosition());
+
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(view.getContext(), CourseList.class);
-            bundle.putString("playListName",course.getCourseName());
-            bundle.putString("code",course.getCode());
-//            bundle.putIntArray();
+            Intent intent = new Intent(view.getContext(), YoutubeCourse.class);
+            bundle.putString("url", lesson.getUrl());
             intent.putExtras(bundle);
             view.getContext().startActivity(intent);
         }
     }
 
-    public CourseAdapter(List<Course> coursesList) {
-        this.coursesList = coursesList;
+    public LessonAdapter(List<Lesson> lessonsList) {
+        this.lessonsList = lessonsList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.course_list_row, parent, false);
+                .inflate(R.layout.course_lesson_row, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Course course = coursesList.get(position);
-        holder.playListName.setText(course.getCourseName());
-        holder.persentage.setText("4");
+        Lesson lesson = lessonsList.get(position);
+        System.out.println("Lesson Name" + lesson.getName());
+        holder.name.setText(lesson.getName());
+        holder.category.setText(lesson.getCategory());
     }
 
     @Override
     public int getItemCount() {
-        return coursesList.size();
+        return lessonsList.size();
     }
 }

@@ -7,6 +7,16 @@ import java.util.List;
 
 public class Course {
     private String courseName;
+    private String code;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     private List<Integer> finishedLessonList;
     private LocalDateTime enrolledDate;
 
