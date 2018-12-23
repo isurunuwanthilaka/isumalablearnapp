@@ -1,15 +1,17 @@
 {
   "User": {
-    "bQAH1yiiFJV4Hx6zsd21Hx0frvW2": {
+    "dTw5ZJ2O38Xt58v0UToBqwvYO7g1": {
       "firstName": "isuru",
       "lastName": "nuwanthilaka",
       "age": "23",
       "enrolled": {
-        "PYPL": {
+        "PLPY": {
+          "playListName": "Python Basics In Sinhala",
           "enrolledDate": "2018-12-20",
           "done": "1 2 3"
         },
         "MLBS": {
+          "playListName": "Machine Learning Basics In Sinhala",
           "enrolledDate": "2018-12-20",
           "done": "1 2 3"
         }
