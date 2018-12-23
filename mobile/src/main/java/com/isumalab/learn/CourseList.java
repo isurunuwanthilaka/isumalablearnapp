@@ -35,17 +35,22 @@ public class CourseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.course_lesson_page);
+
+        //adding toolbar
+        mTopToolbar1 = (Toolbar) findViewById(R.id.my_back_toolbar);
+        setSupportActionBar(mTopToolbar1);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {
             Intent myIntent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(myIntent);
         } else {
-            setContentView(R.layout.course_lesson_page);
-
-            //adding toolbar
-            mTopToolbar1 = (Toolbar) findViewById(R.id.my_toolbar);
-            setSupportActionBar(mTopToolbar1);
 
             recyclerView = (RecyclerView) findViewById(R.id.recycle_view_lesson);
 

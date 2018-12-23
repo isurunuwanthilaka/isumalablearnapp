@@ -3,6 +3,7 @@ package com.isumalab.learn;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -14,11 +15,19 @@ public class YoutubeCourse extends YouTubeBaseActivity implements YouTubePlayer.
 
     public static final String API_KEY = "AIzaSyC_RFAFLiThN0eKeJNWxxt2YFahJiIDIDU";
     public String videoID;
+    private Toolbar mTopToolbar1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
+
+        //adding toolbar
+//        mTopToolbar1 = (Toolbar) findViewById(R.id.my_back_toolbar);
+//        setSupportActionBar(mTopToolbar1);
+//
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
