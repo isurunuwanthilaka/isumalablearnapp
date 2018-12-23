@@ -1,5 +1,6 @@
 package com.isumalab.learn;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -12,12 +13,17 @@ import com.google.android.youtube.player.YouTubePlayerView;
 public class YoutubeCourse extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     public static final String API_KEY = "AIzaSyC_RFAFLiThN0eKeJNWxxt2YFahJiIDIDU";
-    public static final String VIDEO_ID = "b3xhZ-pnH0s";
+    public String videoID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        videoID = extras.getString("url");
 
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player);
         youTubePlayerView.initialize(API_KEY,this);
@@ -35,7 +41,7 @@ public class YoutubeCourse extends YouTubeBaseActivity implements YouTubePlayer.
         youTubePlayer.setPlaybackEventListener(playbackEventListener);
 
         if (!wasRestored) {
-            youTubePlayer.cueVideo(VIDEO_ID);
+            youTubePlayer.cueVideo(videoID);
         }
 
     }

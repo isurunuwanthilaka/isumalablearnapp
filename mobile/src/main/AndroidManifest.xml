@@ -62,6 +62,12 @@
         />
 
         <activity
+            android:name=".CourseList"
+            android:label="Class Room"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+        <activity
             android:name=".SignUpActivity"
             android:label="SignUp"
             android:theme="@style/AppTheme.NoActionBar"
