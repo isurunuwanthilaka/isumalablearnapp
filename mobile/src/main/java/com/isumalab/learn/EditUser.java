@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+/*
+* This is for editing user details.
+*/
 public class EditUser extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbarEditUser;

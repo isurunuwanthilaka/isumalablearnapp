@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -13,8 +16,17 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem mUser;
     private MenuItem mLearderboard;
     private FirebaseAuth mAuth;
+    private List<Course> courseList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private CourseAdapter mAdapter;
+    private DatabaseReference ref;
 
 
     @Override
@@ -41,6 +57,16 @@ public class MainActivity extends AppCompatActivity {
             mTopToolbar = (Toolbar) findViewById(R.id.my_toolbar);
             setSupportActionBar(mTopToolbar);
 
+            recyclerView = (RecyclerView) findViewById(R.id.recycle_view_course);
+
+            mAdapter = new CourseAdapter(courseList);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setAdapter(mAdapter);
+
+            prepareMovieData();
+
 //            //adding button for testing
 //            mButton = (Button) findViewById(R.id.button);
 //            mButton.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +77,32 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            });
         }
+    }
+
+    private void prepareMovieData() {
+
+
+        ref = FirebaseDatabase.getInstance().getReference("User/" + mAuth.getCurrentUser().getUid() + "/enrolled");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                courseList.clear();
+                for (DataSnapshot oneSnapShot : dataSnapshot.getChildren()) {
+                    Course course = new Course();
+                    String courseName = oneSnapShot.child("/playListName").getValue(String.class);
+                    course.setCourseName(courseName);
+                    courseList.add(course);
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
     }
 
     @Override
