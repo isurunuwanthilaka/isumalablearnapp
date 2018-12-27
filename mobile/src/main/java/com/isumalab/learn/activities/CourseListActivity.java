@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,11 +16,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.isumalab.learn.R;
+import com.isumalab.learn.adapters.LessonAdapter;
+import com.isumalab.learn.models.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseList extends AppCompatActivity {
+public class CourseListActivity extends AppCompatActivity {
 
     private Toolbar mTopToolbar1;
     private String name, code;

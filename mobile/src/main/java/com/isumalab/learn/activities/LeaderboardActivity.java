@@ -1,22 +1,25 @@
-package com.isumalab.learn;
+package com.isumalab.learn.activities;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
-public class EditCourse extends AppCompatActivity {
+import com.isumalab.learn.R;
 
-    private Toolbar toolbarEditCourse;
+public class LeaderboardActivity extends AppCompatActivity {
 
+    private Toolbar mTopToolbar1;
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_course);
+        setContentView(R.layout.activity_leaderboard);
 
         //adding toolbar
-        toolbarEditCourse = (Toolbar) findViewById(R.id.my_back_toolbar);
-        setSupportActionBar(toolbarEditCourse);
+        mTopToolbar1 = (Toolbar) findViewById(R.id.my_back_toolbar);
+        setSupportActionBar(mTopToolbar1);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

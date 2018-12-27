@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,11 +18,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.isumalab.learn.R;
 
 /*
  * This is for editing user details.
  */
-public class EditUser extends AppCompatActivity implements View.OnClickListener {
+public class EditUserActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbarEditUser;
     FirebaseAuth mAuth;

@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.adapters;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.isumalab.learn.models.Lesson;
+import com.isumalab.learn.R;
+import com.isumalab.learn.activities.YoutubeCourseActivity;
 
 import java.util.List;
 
@@ -29,7 +33,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.MyViewHold
             Lesson lesson = lessonsList.get(getLayoutPosition());
 
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(view.getContext(), YoutubeCourse.class);
+            Intent intent = new Intent(view.getContext(), YoutubeCourseActivity.class);
             bundle.putString("url", lesson.getUrl());
             intent.putExtras(bundle);
             view.getContext().startActivity(intent);

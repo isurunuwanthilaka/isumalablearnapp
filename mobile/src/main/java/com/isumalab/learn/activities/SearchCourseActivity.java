@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class SearchCourse extends AppCompatActivity {
+import com.isumalab.learn.R;
+
+public class SearchCourseActivity extends AppCompatActivity {
 
     private Toolbar toolbarEditCourse;
 
