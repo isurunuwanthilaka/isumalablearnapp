@@ -4,6 +4,11 @@ public class SearchCourseItem {
     private String name;
     private String code;
 
+    public SearchCourseItem(String name, String code) {
+        this.name = name;
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }
