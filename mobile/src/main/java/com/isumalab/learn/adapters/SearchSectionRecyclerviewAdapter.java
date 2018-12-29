@@ -48,24 +48,6 @@ public class SearchSectionRecyclerviewAdapter extends RecyclerView.Adapter<Searc
         itemRowHolder.recycler_view_list.setAdapter(itemListDataAdapter);
 
 
-        itemRowHolder.btnMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                Toast.makeText(v.getContext(), "click event on more, " + sectionName, Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
-
-
-       /* Glide.with(mContext)
-                .load(feedItem.getImageURL())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop()
-                .error(R.drawable.bg)
-                .into(feedListRowHolder.thumbView);*/
     }
 
     @Override
@@ -79,16 +61,12 @@ public class SearchSectionRecyclerviewAdapter extends RecyclerView.Adapter<Searc
 
         protected RecyclerView recycler_view_list;
 
-        protected Button btnMore;
-
 
         public ItemRowHolder(View view) {
             super(view);
 
             this.itemTitle = (TextView) view.findViewById(R.id.itemTitle);
             this.recycler_view_list = (RecyclerView) view.findViewById(R.id.recycler_view_list);
-            this.btnMore = (Button) view.findViewById(R.id.btnMore);
-
 
         }
 

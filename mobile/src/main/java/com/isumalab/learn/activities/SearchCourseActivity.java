@@ -42,7 +42,7 @@ public class SearchCourseActivity extends AppCompatActivity {
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            toolbar.setTitle("G PlayStore");
+            toolbar.setTitle("IsumaSchool");
 
         }
 
