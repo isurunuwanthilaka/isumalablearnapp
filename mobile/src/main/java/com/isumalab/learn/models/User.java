@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.models;
 
 public class User {
     private String FirstName;

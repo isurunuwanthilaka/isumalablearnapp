@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.isumalab.learn.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

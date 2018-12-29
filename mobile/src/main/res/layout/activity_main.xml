@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:scrollbarAlwaysDrawHorizontalTrack="false"
     android:scrollbarAlwaysDrawVerticalTrack="false"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -15,12 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:elevation="4dp"
-        tools:layout_editor_absoluteY="69dp" />
+        tools:layout_editor_absoluteY="69dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textViewActiveCourse"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -43,11 +44,6 @@
         android:id="@+id/scrollview_feed"
         android:layout_width="344dp"
         android:layout_height="465dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
