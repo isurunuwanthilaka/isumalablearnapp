@@ -8,8 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.isumalab.learn.R;
 import com.isumalab.learn.adapters.SearchSectionRecyclerviewAdapter;
+import com.isumalab.learn.models.Course;
 import com.isumalab.learn.models.SearchCourseItem;
 import com.isumalab.learn.models.SearchSection;
 
@@ -18,6 +24,8 @@ import java.util.ArrayList;
 public class SearchCourseActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    DatabaseReference ref;
+    SearchSectionRecyclerviewAdapter adapter;
 
 
     ArrayList<SearchSection> allSampleData;
@@ -41,15 +49,14 @@ public class SearchCourseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-
-        createDummyData();
+        bindCourseData();
 
 
         RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         my_recycler_view.setHasFixedSize(true);
 
-        SearchSectionRecyclerviewAdapter adapter = new SearchSectionRecyclerviewAdapter(this, allSampleData);
+        adapter = new SearchSectionRecyclerviewAdapter(this, allSampleData);
 
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -58,23 +65,37 @@ public class SearchCourseActivity extends AppCompatActivity {
 
     }
 
-    public void createDummyData() {
-        for (int i = 1; i <= 5; i++) {
+    public void bindCourseData() {
 
-            SearchSection dm = new SearchSection();
+        ref = FirebaseDatabase.getInstance().getReference("/Course");
 
-            dm.setHeaderTitle("Section " + i);
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                allSampleData.clear();
+                for (DataSnapshot sectionSnapShot : dataSnapshot.getChildren()) {
+                    SearchSection searchSection = new SearchSection();
+                    ArrayList<SearchCourseItem> singleSectionItemList = new ArrayList<SearchCourseItem>();
+                    searchSection.setHeaderTitle(sectionSnapShot.getKey().toString());
+                    for (DataSnapshot itemSnapShot : sectionSnapShot.getChildren()) {
+                        String code = itemSnapShot.getKey().toString();
+                        String name = itemSnapShot.child("/playListName").getValue(String.class);
+                        SearchCourseItem searchCourseItem = new SearchCourseItem(name,code);
+                        singleSectionItemList.add(searchCourseItem);
+                    }
 
-            ArrayList<SearchCourseItem> singleItem = new ArrayList<SearchCourseItem>();
-            for (int j = 0; j <= 5; j++) {
-                singleItem.add(new SearchCourseItem("Item " + j, "URL " + j));
+                    searchSection.setAllItemsInSection(singleSectionItemList);
+                    allSampleData.add(searchSection);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
-            dm.setAllItemsInSection(singleItem);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
 
-            allSampleData.add(dm);
-
-        }
     }
 
     @Override

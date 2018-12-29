@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.isumalab.learn">
 
-    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name = "android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name = "android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
 
     <application
@@ -31,53 +31,43 @@
         <activity
             android:name=".activities.YoutubeCourseActivity"
             android:label="Class Room"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.EditUserActivity"
             android:label="User Profile"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.CourseOverviewActivity"
+            android:label="Course Overview"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.EditCourseActivity"
             android:label="Course Details"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.LeaderboardActivity"
             android:label="Leaderboard"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.FeedActivity"
             android:label="Feed"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.SearchCourseActivity"
             android:label="Course Catalog"
-            android:theme="@style/AppTheme.NoActionBar"
-        />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CourseListActivity"
             android:label="Class Room"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.SignUpActivity"
             android:label="SignUp"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
-        <activity android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 

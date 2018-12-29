@@ -30,9 +30,9 @@ public class LeaderboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()== android.R.id.home) {
 
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
+        finish();
     }
+        return super.onOptionsItemSelected(item);
+}
 
 }

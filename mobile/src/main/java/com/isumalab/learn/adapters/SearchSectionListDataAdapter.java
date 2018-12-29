@@ -1,6 +1,8 @@
 package com.isumalab.learn.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.isumalab.learn.R;
+import com.isumalab.learn.activities.CourseListActivity;
+import com.isumalab.learn.activities.CourseOverviewActivity;
+import com.isumalab.learn.models.Lesson;
 import com.isumalab.learn.models.SearchCourseItem;
 
 import java.util.ArrayList;
@@ -65,20 +70,18 @@ public class SearchSectionListDataAdapter extends RecyclerView.Adapter<SearchSec
             this.tvTitle = (TextView) view.findViewById(R.id.tvTitle);
             this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
 
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-
-
-                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
-
+                public void onClick(View view) {
+                    SearchCourseItem searchCourseItem = itemsList.get(getLayoutPosition());
+                    Bundle bundle = new Bundle();
+                    Intent intent = new Intent(view.getContext(), CourseOverviewActivity.class);
+                    bundle.putString("name", searchCourseItem.getName());
+                    bundle.putString("code", searchCourseItem.getCode());
+                    intent.putExtras(bundle);
+                    view.getContext().startActivity(intent);
                 }
             });
-
-
         }
-
     }
-
 }
