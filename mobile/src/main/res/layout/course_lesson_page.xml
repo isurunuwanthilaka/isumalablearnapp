@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_lesson_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".activities.CourseListActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_back_toolbar"
+        style="@style/HeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:elevation="4dp" />
+
+    <ScrollView
+        android:id="@+id/scrollview_lesson"
+        android:layout_width="344dp"
+        android:layout_height="556dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewActiveCourse">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_view_lesson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="94dp"
+            tools:layout_editor_absoluteY="153dp" />
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
