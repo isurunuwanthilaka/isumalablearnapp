@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,9 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+import com.isumalab.learn.R;
 
-public class YoutubeCourse extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+public class YoutubeCourseActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     public static final String API_KEY = "AIzaSyC_RFAFLiThN0eKeJNWxxt2YFahJiIDIDU";
     public String videoID;

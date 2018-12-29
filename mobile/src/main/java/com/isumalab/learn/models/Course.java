@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.models;
 
 //This is for course details in short to display in recycler view
 

@@ -1,4 +1,4 @@
-package com.isumalab.learn;
+package com.isumalab.learn.adapters;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.isumalab.learn.models.Course;
+import com.isumalab.learn.activities.CourseListActivity;
+import com.isumalab.learn.R;
 
 import java.util.List;
 
@@ -28,7 +32,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.MyViewHold
         public void onClick(View view) {
             Course course = coursesList.get(getLayoutPosition());
             Bundle bundle = new Bundle();
-            Intent intent = new Intent(view.getContext(), CourseList.class);
+            Intent intent = new Intent(view.getContext(), CourseListActivity.class);
             bundle.putString("playListName",course.getCourseName());
             bundle.putString("code",course.getCode());
 //            bundle.putIntArray();

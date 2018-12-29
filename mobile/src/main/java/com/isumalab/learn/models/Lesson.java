@@ -1,8 +1,17 @@
-package com.isumalab.learn;
+package com.isumalab.learn.models;
 
 public class Lesson {
     private String name;
     private String category;
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getUrl() {
         return url;
