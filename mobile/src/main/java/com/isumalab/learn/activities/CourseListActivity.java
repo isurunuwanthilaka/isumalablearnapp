@@ -84,13 +84,17 @@ public class CourseListActivity extends AppCompatActivity {
                 for (DataSnapshot oneSnapShot : dataSnapshot.getChildren()) {
                     Lesson lesson = new Lesson();
                     lesson.setCategory(code);
+                    String lessonKey = oneSnapShot.getKey();
                     String lessonName = oneSnapShot.child("/videoName").getValue(String.class);
                     String lessonUrl = oneSnapShot.child("/videoID").getValue(String.class);
-                    System.out.println(lessonName);
-                    System.out.println(lessonUrl);
+                    String lessonCourseID = oneSnapShot.child("/courseID").getValue(String.class);
+
                     lesson.setName(lessonName);
                     lesson.setUrl(lessonUrl);
                     lesson.setCategory(code);
+                    lesson.setCourseID(lessonCourseID);
+                    lesson.setKey(lessonKey);
+
                     lessonList.add(lesson);
                     mAdapter.notifyDataSetChanged();
                 }
