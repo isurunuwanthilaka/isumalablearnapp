@@ -6,8 +6,8 @@ android {
         applicationId "com.isumalab.learn"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 3
-        versionName "beta 0.0.3"
+        versionCode 6
+        versionName "0.0.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.4'
     implementation 'com.google.firebase:firebase-core:16.0.5'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'com.google.firebase:firebase-storage:16.0.5'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
     implementation 'com.google.android.gms:play-services-places:16.0.0'
 }

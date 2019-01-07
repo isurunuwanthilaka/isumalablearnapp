@@ -8,6 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,7 +27,7 @@ import com.isumalab.learn.models.Lesson;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseListActivity extends AppCompatActivity {
+public class CourseListActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Toolbar mTopToolbar1;
     private String name, code;
@@ -32,6 +36,8 @@ public class CourseListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LessonAdapter mAdapter;
     private DatabaseReference ref;
+    private TextView title;
+    private Button unenroll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,8 @@ public class CourseListActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        findViewById(R.id.unenroll).setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -67,9 +75,16 @@ public class CourseListActivity extends AppCompatActivity {
             name = extras.getString("playListName");
             code = extras.getString("code");
 
+            title = (TextView) findViewById(R.id.title_lesson_page);
+            title.setText(name);
+
             prepareLessonData();
         }
 
+    }
+
+    private void unenroll(){
+        Toast.makeText(this, "Unenroll", Toast.LENGTH_LONG).show();
     }
 
     private void prepareLessonData() {
@@ -117,4 +132,12 @@ public class CourseListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.unenroll:
+                unenroll();
+                break;
+        }
+    }
 }

@@ -2,6 +2,8 @@ package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -18,8 +22,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.isumalab.learn.R;
 import com.isumalab.learn.models.Lesson;
+
+import java.io.File;
 
 public class YoutubeCourseActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener, OnClickListener {
 
@@ -99,6 +108,8 @@ public class YoutubeCourseActivity extends YouTubeBaseActivity implements YouTub
             youTubePlayer.cueVideo(videoID);
         }
 
+        youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL);
+
     }
 
     YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
@@ -164,13 +175,37 @@ public class YoutubeCourseActivity extends YouTubeBaseActivity implements YouTub
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_pdf_download:
-                Toast.makeText(this, "downloading pdf...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Downloading pdf...", Toast.LENGTH_SHORT).show();
+                dowloadNote();
                 break;
             case R.id.btn_test:
-                Toast.makeText(this, "test link", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tests are not available yet.", Toast.LENGTH_SHORT).show();
 
                 break;
         }
 
     }
+
+    private void dowloadNote() {
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReferenceFromUrl("gs://isumalab-331f5.appspot.com");
+        StorageReference pathReference = storageRef.child(courseID+"/"+videoName + ".pdf");
+//        File fileNameOnDevice = new File("download/pythonlesson1.pdf");
+        File fileNameOnDevice = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), courseID+" "+videoName + ".pdf");
+
+        pathReference.getFile(fileNameOnDevice).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                // Local temp file has been created
+                Toast.makeText(getApplicationContext(), "Download finished", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+                Toast.makeText(getApplicationContext(), "Download failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }
