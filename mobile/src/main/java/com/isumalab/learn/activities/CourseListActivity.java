@@ -2,6 +2,7 @@ package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,12 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isumalab.learn.R;
 import com.isumalab.learn.adapters.LessonAdapter;
+import com.isumalab.learn.fragments.ContinueDialogFragment;
 import com.isumalab.learn.models.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseListActivity extends AppCompatActivity implements View.OnClickListener{
+public class CourseListActivity extends AppCompatActivity implements View.OnClickListener,ContinueDialogFragment.ContinueDialogListener{
 
     private Toolbar mTopToolbar1;
     private String name, code;
@@ -132,11 +134,26 @@ public class CourseListActivity extends AppCompatActivity implements View.OnClic
         return super.onOptionsItemSelected(item);
     }
 
+    public void showNoticeDialog() {
+        DialogFragment newFragment = new ContinueDialogFragment();
+        newFragment.show(getSupportFragmentManager(), "unenroll");
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        unenroll();
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.unenroll:
-                unenroll();
+                showNoticeDialog();
                 break;
         }
     }

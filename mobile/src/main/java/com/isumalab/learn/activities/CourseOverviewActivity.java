@@ -2,6 +2,7 @@ package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ import com.isumalab.learn.DTO.enrollCourseToUserDTO;
 import com.isumalab.learn.R;
 import com.isumalab.learn.adapters.CourseOverviewAdapter;
 import com.isumalab.learn.adapters.LessonAdapter;
+import com.isumalab.learn.fragments.ContinueDialogFragment;
 import com.isumalab.learn.models.Lesson;
 
 import java.time.LocalDateTime;
@@ -30,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CourseOverviewActivity extends AppCompatActivity implements View.OnClickListener{
+public class CourseOverviewActivity extends AppCompatActivity implements View.OnClickListener,ContinueDialogFragment.ContinueDialogListener {
 
     private Toolbar mTopToolbar;
     private String name, code;
@@ -121,6 +123,21 @@ public class CourseOverviewActivity extends AppCompatActivity implements View.On
         return super.onOptionsItemSelected(item);
     }
 
+    public void showNoticeDialog() {
+        DialogFragment newFragment = new ContinueDialogFragment();
+        newFragment.show(getSupportFragmentManager(), "enroll");
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        enroll();
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+
+    }
+
     public void enroll(){
         ref = FirebaseDatabase.getInstance().getReference("User/" + mAuth.getCurrentUser().getUid()+ "/enrolled");
         ref.child(code).setValue(new enrollCourseToUserDTO("", new Date(System.currentTimeMillis()),name));
@@ -134,7 +151,7 @@ public class CourseOverviewActivity extends AppCompatActivity implements View.On
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.enroll:
-                enroll();
+                showNoticeDialog();
                 break;
         }
 
