@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "690723262627",
+    "firebase_url": "https://isumalab-331f5.firebaseio.com",
+    "project_id": "isumalab-331f5",
+    "storage_bucket": "isumalab-331f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690723262627:android:79cc3995a4bbfd16",
+        "android_client_info": {
+          "package_name": "com.isumalab.learn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690723262627-namautrd7irkr54dototj5bdelcmtdgn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isumalab.learn",
+            "certificate_hash": "4b4696d24eede1cbe17ec30e97fc7697ef81ac4d"
+          }
+        },
+        {
+          "client_id": "690723262627-n9clg5p80vn5frgia1i9le524ae0v2hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuAoqCfW5LgnmPeiog-gbN96GN1khION4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690723262627-n9clg5p80vn5frgia1i9le524ae0v2hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
