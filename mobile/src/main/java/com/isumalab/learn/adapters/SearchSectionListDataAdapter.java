@@ -3,18 +3,15 @@ package com.isumalab.learn.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.isumalab.learn.R;
-import com.isumalab.learn.activities.CourseListActivity;
 import com.isumalab.learn.activities.CourseOverviewActivity;
-import com.isumalab.learn.models.Lesson;
 import com.isumalab.learn.models.SearchCourseItem;
 
 import java.util.ArrayList;

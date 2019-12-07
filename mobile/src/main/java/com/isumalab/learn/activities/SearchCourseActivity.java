@@ -1,11 +1,10 @@
 package com.isumalab.learn.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isumalab.learn.R;
 import com.isumalab.learn.adapters.SearchSectionRecyclerviewAdapter;
-import com.isumalab.learn.models.Course;
 import com.isumalab.learn.models.SearchCourseItem;
 import com.isumalab.learn.models.SearchSection;
 
