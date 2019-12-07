@@ -2,12 +2,17 @@ package com.isumalab.learn.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,12 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.isumalab.learn.R;
 import com.isumalab.learn.adapters.LessonAdapter;
+import com.isumalab.learn.fragments.ContinueDialogFragment;
 import com.isumalab.learn.models.Lesson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseListActivity extends AppCompatActivity {
+public class CourseListActivity extends AppCompatActivity implements View.OnClickListener,ContinueDialogFragment.ContinueDialogListener{
 
     private Toolbar mTopToolbar1;
     private String name, code;
@@ -32,6 +38,8 @@ public class CourseListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LessonAdapter mAdapter;
     private DatabaseReference ref;
+    private TextView title;
+    private Button unenroll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,8 @@ public class CourseListActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        findViewById(R.id.unenroll).setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -67,9 +77,16 @@ public class CourseListActivity extends AppCompatActivity {
             name = extras.getString("playListName");
             code = extras.getString("code");
 
+            title = (TextView) findViewById(R.id.title_lesson_page);
+            title.setText(name);
+
             prepareLessonData();
         }
 
+    }
+
+    private void unenroll(){
+        Toast.makeText(this, "Unenroll", Toast.LENGTH_LONG).show();
     }
 
     private void prepareLessonData() {
@@ -84,13 +101,17 @@ public class CourseListActivity extends AppCompatActivity {
                 for (DataSnapshot oneSnapShot : dataSnapshot.getChildren()) {
                     Lesson lesson = new Lesson();
                     lesson.setCategory(code);
+                    String lessonKey = oneSnapShot.getKey();
                     String lessonName = oneSnapShot.child("/videoName").getValue(String.class);
                     String lessonUrl = oneSnapShot.child("/videoID").getValue(String.class);
-                    System.out.println(lessonName);
-                    System.out.println(lessonUrl);
+                    String lessonCourseID = oneSnapShot.child("/courseID").getValue(String.class);
+
                     lesson.setName(lessonName);
                     lesson.setUrl(lessonUrl);
                     lesson.setCategory(code);
+                    lesson.setCourseID(lessonCourseID);
+                    lesson.setKey(lessonKey);
+
                     lessonList.add(lesson);
                     mAdapter.notifyDataSetChanged();
                 }
@@ -113,4 +134,27 @@ public class CourseListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void showNoticeDialog() {
+        DialogFragment newFragment = new ContinueDialogFragment();
+        newFragment.show(getSupportFragmentManager(), "unenroll");
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        unenroll();
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.unenroll:
+                showNoticeDialog();
+                break;
+        }
+    }
 }

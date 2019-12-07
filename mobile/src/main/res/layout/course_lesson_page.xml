@@ -17,12 +17,12 @@
 
     <ScrollView
         android:id="@+id/scrollview_lesson"
-        android:layout_width="344dp"
-        android:layout_height="556dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewActiveCourse">
+        app:layout_constraintTop_toBottomOf="@+id/unenroll">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycle_view_lesson"
@@ -34,6 +34,31 @@
             tools:layout_editor_absoluteX="94dp"
             tools:layout_editor_absoluteY="153dp" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/title_lesson_page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="2dp"
+        android:paddingTop="4dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_back_toolbar" />
+
+    <Button
+        android:id="@+id/unenroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Unenroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_lesson_page" />
 
 
 </android.support.constraint.ConstraintLayout>

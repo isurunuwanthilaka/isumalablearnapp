@@ -4,6 +4,25 @@ public class Lesson {
     private String name;
     private String category;
     private String description;
+    private String courseID;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    private String key;
+
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
 
     public String getDescription() {
         return description;

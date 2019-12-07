@@ -35,6 +35,9 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.MyViewHold
             Bundle bundle = new Bundle();
             Intent intent = new Intent(view.getContext(), YoutubeCourseActivity.class);
             bundle.putString("url", lesson.getUrl());
+            bundle.putString("title",lesson.getName());
+            bundle.putString("courseID",lesson.getCourseID());
+            bundle.putString("key",lesson.getKey());
             intent.putExtras(bundle);
             view.getContext().startActivity(intent);
         }
