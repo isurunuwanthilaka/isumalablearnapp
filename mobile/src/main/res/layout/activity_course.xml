@@ -4,14 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/youtubeframe"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_back_toolbar"
         style="@style/HeaderBar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:elevation="4dp" />
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/course_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/course_title"
@@ -21,7 +27,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="53dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/colorPrimary"
         android:padding="4dp"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/frame_youtube"
@@ -65,7 +71,8 @@
         android:text="PDF"
         app:layout_constraintEnd_toStartOf="@+id/btn_test"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame_youtube" />
+        app:layout_constraintTop_toBottomOf="@+id/frame_youtube"
+        android:background="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/btn_test"
@@ -79,7 +86,8 @@
         android:text="Test"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_pdf_download"
-        app:layout_constraintTop_toBottomOf="@+id/frame_youtube" />
+        app:layout_constraintTop_toBottomOf="@+id/frame_youtube"
+        android:background="@color/colorPrimary"/>
 
     <ScrollView
         android:id="@+id/scrollViewNote"

@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,9 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/design_default_color_primary_dark"
+            android:background="@color/colorPrimaryDark"
             android:text="Login"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp"
             android:visibility="visible"
             tools:textAllCaps="false" />
@@ -92,8 +92,8 @@
             android:padding="8dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="Don't have account? Sign Up"
-            android:textColor="@color/colorAccent"
+            android:text="Don't have an account? Sign Up"
+            android:textColor="@color/colorWhite"
             android:textSize="18sp" />
     </LinearLayout>
 
